@@ -30,7 +30,10 @@ function generateInteractions(post, number) {
             continue;
         }
 
-        interactions.push(newInteraction);
+        interactions.push({
+            ...newInteraction,
+            date: newInteraction.date.format("YYYY-MM-DD HH:mm:ss")
+        });
     }
     return interactions;
 }
