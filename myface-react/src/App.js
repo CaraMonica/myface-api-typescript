@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import PostList from "./Components/PostList";
+import UserList from "./Components/UserList";
+import Header from "./Components/Header";
 
-const App = data => {
-  const [postList, setPostList] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/posts")
-      .then(response => response.json())
-      .then(data => setPostList(data.results));
-  });
-
+const App = () => {
   return (
     <div>
-      <h1 id="title">MyFace</h1>
-      <PostList postList={postList} />
+      <Header />
+      <UserList />
     </div>
   );
 };
