@@ -2,12 +2,12 @@ import React from "react";
 import "./App.scss";
 import PostList from "./Components/PostList";
 import UserList from "./Components/UserList";
-import Header from "./Components/Header";
+import Navbar from "./Components/Header/Navbar";
 
 const App = () => {
   return (
     <div>
-      <Header />
+      <Navbar />
       <UserList />
     </div>
   );
