@@ -10,10 +10,13 @@ const PostList = () => {
       .then(data => setPostList(data.results));
   });
 
+  // [5,9,2,5]
+  // [(5,0),(9,1),(2,2), (5,3)]
+
   return (
     <ul className="flex-container">
-      {postList.map(post => (
-        <Post post={post} isOnPostPage={true}/>
+      {postList.map((post, index) => (
+        <Post post={post} key={index} isOnPostPage={true}/>
       ))}
     </ul>
   );
