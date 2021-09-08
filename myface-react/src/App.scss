@@ -1,6 +1,6 @@
-@import "./Components/PostList.css";
-@import "./Components/Header.css";
-@import "./Components/UserList.css";
+@use "./Components/PostList.scss";
+@use "./Components/Header.scss";
+@use "./Components/UserList.scss";
 
 body {
   font-family: monospace;

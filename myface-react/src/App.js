@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import PostList from "./Components/PostList";
 import UserList from "./Components/UserList";
 import Header from "./Components/Header";
