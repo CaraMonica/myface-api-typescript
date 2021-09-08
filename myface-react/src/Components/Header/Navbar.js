@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Logo from "./Logo";
 import NavOptions from "./NavOptions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [click, setClick] = useState(false);
@@ -14,7 +16,7 @@ const Navbar = () => {
         <NavOptions click={click} closeMobileMenu={closeMobileMenu} />
       </div>
       <div className="mobile-menu" onClick={handleClick}>
-        {click ? <i className="fas fa-times menu-icon"></i> : <i className="fas fa-bars menu-icon"></i>}
+        {click ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
       </div>
     </div>
   );
