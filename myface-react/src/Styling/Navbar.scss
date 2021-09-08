@@ -1,0 +1,90 @@
+@import "./StylingConstants.scss";
+
+.header {
+  display: flex;
+  background: $background-color-darker;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0px map-deep-get($spacing, gutters, desktop);
+}
+
+.logo {
+ font-size: map-deep-get($fonts, sizes, desktop);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-options {
+  padding-left: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 50px;
+  list-style-type: none;
+}
+
+.mobile-option {
+  display: none;
+  color: white;
+}
+
+.option a,
+.logo {
+  color: white;
+  text-decoration: none;
+
+  &:active {
+    font-weight: bold;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 648px) {
+  /*Mobile View */
+  .nav-options {
+    display: flex;
+    width: 80%;
+    height: 350px;
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    opacity: 0;
+    transition: all 0.5s ease;
+    flex-direction: column;
+    list-style-type: none;
+    grid-gap: 0px;
+  }
+
+  .nav-options.active {
+    background: rgb$background-color-darker;
+    left: 0;
+    transition: all 0.5s ease;
+    z-index: 1;
+    align-content: center;
+    padding-left: 0px;
+  }
+
+  .menu-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10vw;
+    padding: 30px 0px;
+  }
+
+  .mobile-option {
+    display: block;
+  }
+}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Logo = () => (
   <div className="logo-container">
-    <a href="#">MyFace</a>
+    <a className="logo" href="#">MyFace</a>
   </div>
 );
 
