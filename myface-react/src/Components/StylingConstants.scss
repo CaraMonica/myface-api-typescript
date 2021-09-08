@@ -1,0 +1,99 @@
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// Colours
+$background-color: #252a38;
+$background-color-darker: #151820;
+$foreground-default: #dcdcdc;
+$primary-color: #2985ff;
+$transparent-overlay: #252a388d;
+
+// Fonts
+$fonts: (
+  family: (
+    "Segoe UI",
+    "Open Sans",
+    sans-serif,
+  ),
+  sizes: (
+    title: (
+      mobile: 24px,
+      tablet: 24px,
+      desktop: 32px,
+    ),
+    subtitle: (
+      mobile: 29px,
+      tablet: 20px,
+      desktop: 24px,
+    ),
+    button: (
+      mobile: 20px,
+      tablet: 20px,
+      desktop: 24px,
+    ),
+    body: (
+      mobile: 14px,
+      tablet: 14px,
+      desktop: 16px,
+    ),
+    secondary: (
+      mobile: 10px,
+      tablet: 10px,
+      desktop: 13px,
+    ),
+  ),
+  line-height: (
+    title: (
+      mobile: 32px,
+      tablet: 32px,
+      desktop: 40px,
+    ),
+    subtitle: (
+      mobile: 24px,
+      tablet: 24px,
+      desktop: 32px,
+    ),
+    button: (
+      mobile: 32px,
+      tablet: 32px,
+      desktop: 40px,
+    ),
+    body: (
+      mobile: 20px,
+      tablet: 20px,
+      desktop: 24px,
+    ),
+    secondary: (
+      mobile: 16px,
+      tablet: 16px,
+      desktop: 20px,
+    ),
+  ),
+);
+
+$spacing: (
+  gutters: (
+    mobile: 24px,
+    tablet: 32px,
+    desktop: 48px,
+  ),
+  card-separation: (
+    mobile: 24px,
+    tablet: 32px,
+    desktop: 48px,
+  ),
+  selection-spacing: (
+    mobile: 40px,
+    tablet: 48px,
+    desktop: 80px,
+  ),
+  card-padding: (
+    mobile: 16px,
+    tablet: 16px,
+    desktop: 24px,
+  ),
+);
