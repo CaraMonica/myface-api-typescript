@@ -1,15 +1,11 @@
 import React from "react";
+import PostContent from "./PostContent";
+import PostImage from "./PostImage";
 
-const Post = ({ post }) => (
+const Post = ({ post, isOnPostPage }) => (
   <li className="post-item">
-    <div className="img-container">
-      <img className="post-image" src={post.imageUrl} alt={post.message} />
-    </div>
-    <div className="content-container">
-      <div className="post-message">{post.message}</div>
-      <div className="post-info post-creator">{post.postedBy.name}</div>
-      <div className="post-info post-date">{post.createdAt}</div>
-    </div>
+    <PostImage post={post} />
+    <PostContent post={post} isOnPostPage={isOnPostPage} />
   </li>
 );
 
