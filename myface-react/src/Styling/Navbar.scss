@@ -10,7 +10,7 @@
 }
 
 .logo {
- font-size: map-deep-get($fonts, sizes, desktop);
+  font-size: map-deep-get($fonts, sizes, desktop);
 }
 
 .logo-container {
@@ -29,12 +29,12 @@
 
 .mobile-option {
   display: none;
-  color: white;
+  color: $navbar-item-color;
 }
 
 .option a,
 .logo {
-  color: white;
+  color: $navbar-item-color;
   text-decoration: none;
 
   &:active {
@@ -63,7 +63,7 @@
   }
 
   .nav-options.active {
-    background: rgb$background-color-darker;
+    background: $background-color-darker;
     left: 0;
     transition: all 0.5s ease;
     z-index: 1;
