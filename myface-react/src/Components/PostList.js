@@ -13,7 +13,7 @@ const PostList = () => {
   return (
     <ul className="flex-container">
       {postList.map(post => (
-        <Post post={post} />
+        <Post post={post} isOnPostPage={true}/>
       ))}
     </ul>
   );
