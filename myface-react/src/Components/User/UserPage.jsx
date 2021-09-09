@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import User from "./User";
 
 const UserPage = ({ match }) => {
@@ -11,7 +11,7 @@ const UserPage = ({ match }) => {
   }, []);
 
   const user = userList.find(({ id }) => id === parseInt(match.params.userId));
-  return user ? <User user={user} /> : <div> user not found </div>
+  return user ? <User user={user} /> : <div> user not found </div>;
 };
 
 export default UserPage;
