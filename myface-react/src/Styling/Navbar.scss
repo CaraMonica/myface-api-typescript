@@ -36,8 +36,8 @@
 }
 
 @mixin nav-buttons {
-  color: $navbar-item-color;
   text-decoration: none;
+  color: $navbar-item-color;
   &:active {
     font-weight: bold;
   }
@@ -57,7 +57,6 @@
 .mobile-menu {
   display: none;
   z-index: 2;
-  color: $background-color-darker;
 }
 
 @media (max-width: 2200px) {
@@ -72,6 +71,15 @@
     padding: 0px map-deep-get($spacing, card-padding, mobile);
     background: transparent;
     font-size: map-deep-get($fonts, sizes, button, mobile);
+    color: $background-color-darker;
+  }
+
+  .cross {
+    color: $navbar-item-color;
+  }
+
+  .logo {
+    color: $background-color-darker;
   }
 
   .nav-options {
