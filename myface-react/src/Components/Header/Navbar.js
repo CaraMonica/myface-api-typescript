@@ -16,7 +16,7 @@ const Navbar = () => {
         <NavOptions click={click} closeMobileMenu={closeMobileMenu} />
       </div>
       <div className="mobile-menu" onClick={handleClick}>
-        {click ? <FontAwesomeIcon icon={faTimes} className="mobile-option"/> : <FontAwesomeIcon icon={faBars} className="mobile-option"/>}
+        <FontAwesomeIcon icon={click ? faTimes : faBars} className={click ? "cross" : "burger"}/>
       </div>
     </div>
   );
