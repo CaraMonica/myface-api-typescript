@@ -5,7 +5,7 @@ import UserProfileImage from "./UserProfileImage";
 import UserInfo from "./UserInfo";
 
 const User = ({ user }) => (
-  <li className="user post-item">
+  <div>
     <UserCoverImage coverImageUrl={user.coverImageUrl} username={user.username} />
     <div className="table-row">
       <UserProfileImage profileImageUrl={user.profileImageUrl} username={user.username} />
@@ -16,7 +16,7 @@ const User = ({ user }) => (
         <Post post={post} isOnPostPage={false}/>
       ))}
     </ul> */}
-  </li>
+  </div>
 );
 
 export default User;
