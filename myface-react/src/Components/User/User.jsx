@@ -1,5 +1,5 @@
 import React from "react";
-import Post from "../Posts/Post";
+// import Post from "../Posts/Post";
 import UserCoverImage from "./UserCoverImage";
 import UserProfileImage from "./UserProfileImage";
 import UserInfo from "./UserInfo";
