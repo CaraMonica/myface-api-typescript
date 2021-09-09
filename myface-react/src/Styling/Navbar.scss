@@ -5,12 +5,14 @@
   background: $background-color-darker;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
   padding: 0px map-deep-get($spacing, gutters, desktop);
+  height: 50px;
 }
 
-.logo {
-  font-size: map-deep-get($fonts, sizes, desktop);
+.logo-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .logo-container {
@@ -32,48 +34,64 @@
   color: $navbar-item-color;
 }
 
-.option a,
-.logo {
+@mixin nav-buttons {
   color: $navbar-item-color;
   text-decoration: none;
-
+  font-size: map-deep-get($fonts, sizes, desktop);
   &:active {
     font-weight: bold;
   }
-
   &:hover {
     text-decoration: underline;
   }
 }
 
+.logo {
+  @include nav-buttons;
+}
+
+.option a {
+  @include nav-buttons;
+}
+
+.mobile-menu {
+  display: none;
+  color: $navbar-item-color;
+}
+
 @media (max-width: 648px) {
   /*Mobile View */
+  .header {
+    padding: 0px 10px;
+  }
+
   .nav-options {
     display: flex;
-    width: 80%;
-    height: 350px;
+    width: 70%;
+    height: 100%;
     position: absolute;
     top: 0px;
-    left: -100%;
+    right: 20px;
+    margin: 0;
     opacity: 0;
+    z-index: 1;
     transition: all 0.5s ease;
     flex-direction: column;
-    list-style-type: none;
     grid-gap: 0px;
   }
 
   .nav-options.active {
     background: $background-color-darker;
-    left: 0;
+    right: 0;
+    opacity: 1;
     transition: all 0.5s ease;
-    z-index: 1;
     align-content: center;
     padding-left: 0px;
   }
 
   .menu-icon {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
   }
 
   .option {
@@ -84,7 +102,7 @@
     padding: 30px 0px;
   }
 
-  .mobile-option {
+  .mobile-menu {
     display: block;
   }
 }
