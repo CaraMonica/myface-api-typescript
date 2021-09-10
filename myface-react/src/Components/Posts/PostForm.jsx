@@ -1,22 +1,19 @@
 import React, { useEffect, useState, Fragment } from 'react';
 
-
 const PostForm = () => {
   const [formData, setFormData] = useState({
     message: "",
     imageUrl: "",
   });
 
-
-  const onFormSubmit = event => {
+    const onFormSubmit = event => {
     event.preventDefault();
-    fetch('http://localhost:3001/posts/create', {
-      method: 'POST',
-      body: JSON.stringify(),
-      headers: { 'Content-Type': 'application/json' },
-    }).then(() => window.location.href = "/posts")
-  
-  }
+    fetch("http://localhost:3001/posts/create", {
+      method: "POST",
+      body: JSON.stringify({ message, imageUrl }),
+      headers: { "Content-Type": "application/json" },
+    }).then(() => (window.location.href = "/posts"));
+  };
 
   return (
     <Fragment>
@@ -44,5 +41,3 @@ const PostForm = () => {
 }
 
 export default PostForm;
-
-
