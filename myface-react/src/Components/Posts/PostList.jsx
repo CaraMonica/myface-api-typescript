@@ -1,22 +1,40 @@
 import React, { useState, useEffect } from "react";
 import Post from "./Post";
 
+const apiUrl = "http://localhost:3001/posts";
+
+const updateInteraction = (postId, interaction, updatePostState) =>
+  fetch(`${apiUrl}/${postId}/${interaction}`, { method: "POST" })
+    .then(response => response.json())
+    .then(updatePostState);
+
 const PostList = () => {
   const [postList, setPostList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/posts")
+    fetch(apiUrl)
       .then(response => response.json())
       .then(data => setPostList(data.results));
-  });
+  }, []);
 
-  // [5,9,2,5]
-  // [(5,0),(9,1),(2,2), (5,3)]
+  const updatePostState = post => {
+    const newPostList = [...postList];
+    newPostList[newPostList.findIndex(p => p.id === post.id)] = post;
+    setPostList(newPostList);
+  };
 
   return (
     <ul className="flex-container">
       {postList.map((post, index) => (
-        <Post post={post} key={index} isOnPostPage={true}/>
+        <Post
+          post={post}
+          key={index}
+          isOnPostPage={true}
+          onLikeClick={() => updateInteraction(post.id, "like", updatePostState)}
+          onDislikeClick={() => updateInteraction(post.id, "dislike", updatePostState)}
+          onUnlikeClick={() => updateInteraction(post.id, "unlike", updatePostState)}
+          onUndislikeClick={() => updateInteraction(post.id, "undislike", updatePostState)}
+        />
       ))}
     </ul>
   );

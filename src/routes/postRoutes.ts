@@ -1,51 +1,68 @@
 import express from "express";
-import {CreatePostRequest} from "../models/api/createPostRequest";
-import {createPost, dislikePost, getPageOfPosts, likePost} from "../services/postService";
+import { CreatePostRequest } from "../models/api/createPostRequest";
+import {
+  createPost,
+  dislikePost,
+  getPageOfPosts,
+  likePost,
+  getPostById,
+  removeInteraction,
+} from "../services/postService";
 import { body, validationResult } from "express-validator";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', async (request, response) => {
-    const page = request.query.page ? parseInt(request.query.page as string) : 1;
-    const pageSize = request.query.pageSize ? parseInt(request.query.pageSize as string) : 10;
+router.get("/", async (request, response) => {
+  const page = request.query.page ? parseInt(request.query.page as string) : 1;
+  const pageSize = request.query.pageSize ? parseInt(request.query.pageSize as string) : 10;
 
-    const postList = await getPageOfPosts(page, pageSize);
+  const postList = await getPageOfPosts(page, pageSize);
 
-    return response.status(200).json(postList);
+  return response.status(200).json(postList);
 });
 
-router.post('/create/',
-    body('message').notEmpty(),
-    body('imageUrl').notEmpty(),
-    async (request, response) => {
-
+router.post(
+  "/create/",
+  body("message").notEmpty(),
+  body("imageUrl").notEmpty(),
+  async (request, response) => {
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
-        return response.status(400).json({errors: errors.array()});
+      return response.status(400).json({ errors: errors.array() });
     }
     const post = request.body;
 
     await createPost(post as CreatePostRequest);
     return response.sendStatus(200);
-});
+  }
+);
 
-router.post('/:postId/like/', async (request, response) => {
-    const userId = 1; // For now, just assume that we are user 1
-    const postId = parseInt(request.params.postId);
-    const returnUrl = request.params?.returnUrl;
+const updateInteractions = async (request: express.Request, response: express.Response, update: Function) => {
+  const userId = 1; // For now, just assume that we are user 1
+  const postId = parseInt(request.params.postId);
+  await update(userId, postId);
+  const post = await getPostById(postId);
+  response.status(200).send(post);
+};
 
-    await likePost(userId, postId);
+router.post(
+  "/:postId/like/",
+  async (request, response) => await updateInteractions(request, response, likePost)
+);
 
-    return response.sendStatus(200);
-});
+router.post(
+  "/:postId/unlike/",
+  async (request, response) => await updateInteractions(request, response, removeInteraction)
+);
 
-router.post('/:postId/dislike/', async (request, response) => {
-    const userId = 1; // For now, just assume that we are user 1
-    const postId = parseInt(request.params.postId);
-    const returnUrl = request.params?.returnUrl;
+router.post(
+  "/:postId/dislike/",
+  async (request, response) => await updateInteractions(request, response, dislikePost)
+);
 
-    await dislikePost(userId, postId);
-    return response.sendStatus(200);
-});
+router.post(
+  "/:postId/undislike/",
+  async (request, response) => await updateInteractions(request, response, removeInteraction)
+);
 
 export default router;
