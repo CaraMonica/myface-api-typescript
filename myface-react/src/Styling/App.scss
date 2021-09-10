@@ -1,11 +1,12 @@
 @use "./PostList.scss";
 @use "./Navbar.scss";
-@use "./UserList.scss";
+@use "./UserListUp.scss";
+@import "./StylingConstants.scss";
 
 body {
   font-family: monospace;
   text-align: center;
-  background-color: rgba(239, 247, 255, 0.945);
+  background-color: $background-color;
 }
 
 ul {
@@ -26,4 +27,5 @@ ul {
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: stretch;
+  background-color: $background-color;
 }

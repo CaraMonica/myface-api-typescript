@@ -1,0 +1,33 @@
+@import "./StylingConstants.scss";
+
+  .cover-img {        //indiv photo
+    width: 300px;
+    height: 200px;
+  }
+
+  
+.profile-img-container {     //circular image
+position: absolute;
+bottom: 50px;
+}
+
+.user-profile-container{      
+    position:relative;
+}
+.user.content-container{
+position: relative;
+}
+
+.profile-img {    // circular image styling
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid $navbar-item-color;
+  width: 50px;
+  
+}
+
+.table-row{
+    height: 5rem;
+    background-color: $background-color-darker;
+
+}

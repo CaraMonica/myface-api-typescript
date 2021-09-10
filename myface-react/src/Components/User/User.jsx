@@ -5,7 +5,7 @@ import UserProfileImage from "./UserProfileImage";
 import UserInfo from "./UserInfo";
 
 const User = ({ user }) => (
-  <div>
+  <div className="user-profile-container">
     <UserCoverImage coverImageUrl={user.coverImageUrl} username={user.username} />
     <div className="table-row">
       <UserProfileImage profileImageUrl={user.profileImageUrl} username={user.username} />
