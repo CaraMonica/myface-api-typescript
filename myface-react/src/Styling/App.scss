@@ -4,11 +4,12 @@
 @import "./StylingConstants.scss";
 
 body {
-  font-family: monospace;
-  text-align: center;
+  font-family: map-deep-get($fonts, family);
   background-color: $background-color;
   font-size: map-deep-get($fonts, sizes, body, desktop);
   line-height: map-deep-get($fonts, line-height, body, desktop);
+  color: $main-font-colour;
+  text-align: center;
 }
 
 .btn {

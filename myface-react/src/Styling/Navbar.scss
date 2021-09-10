@@ -52,7 +52,7 @@
   z-index: 2;
 }
 
-@media (max-width: $max-mobile-width) {
+@media (max-width: $max-tablet-width) {
   .header {
     background: transparent;
     color: $background-color-darker;
