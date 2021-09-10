@@ -1,10 +1,12 @@
-import { React, Fragment, useState } from "react";
+import React, { useEffect, useState, Fragment } from 'react';
 
 const PostForm = () => {
-  const [message, setMessage] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
+  const [formData, setFormData] = useState({
+    message: "",
+    imageUrl: "",
+  });
 
-  const onCreatePost = event => {
+    const onFormSubmit = event => {
     event.preventDefault();
     fetch("http://localhost:3001/posts/create", {
       method: "POST",
@@ -15,20 +17,27 @@ const PostForm = () => {
 
   return (
     <Fragment>
-      <h1>Create Post</h1>
-      <form onSubmit={onCreatePost}>
+      <h3> Create Post</h3>
+      <form method="post" onSubmit={onFormSubmit}>
         <label>
-          What's on your mind:
-          <input type="text" name="message" onChange={e => setMessage(e.target.value)} required />
+          Please type your post here:
+          <textarea onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            value={formData.message}
+            type="text" name="message" />
         </label>
         <label>
-          Image Link:
-          <input type="url" name="imageUrl" onChange={e => setImageUrl(e.target.value)} required />
+          Please enter the url for an image here:
+          <input onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
+            value={formData.imageUrl}
+            type="url" name="imageUrl" />
         </label>
-        <button type="submit">Post</button>
+        {/* <label>
+            or upload an image from your computer here:
+            <input type="file" name="imageUrl" />
+        </label> */}
+        <button type="submit">Submit</button>
       </form>
-    </Fragment>
-  );
-};
+    </Fragment>)
+}
 
 export default PostForm;
