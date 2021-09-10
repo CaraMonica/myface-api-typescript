@@ -4,12 +4,11 @@ import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 const LikeDislikeButton = ({ onClick, interactionType, hasUserInteracted, interactionValue, buttonType }) => (
   <Fragment>
-    <button
+    <FontAwesomeIcon
+      icon={buttonType}
       onClick={onClick}
       className={`btn ${interactionType}${hasUserInteracted ? ` ${interactionType}ed` : ""}`}
-    >
-      <FontAwesomeIcon icon={buttonType} />
-    </button>
+    />
     <div className="interaction-value">{interactionValue}</div>
   </Fragment>
 );

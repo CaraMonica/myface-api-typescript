@@ -15,9 +15,11 @@ const Navbar = () => {
         <Logo />
         <NavOptions click={click} closeMobileMenu={closeMobileMenu} />
       </div>
-      <div className="mobile-menu" onClick={handleClick}>
-        <FontAwesomeIcon icon={click ? faTimes : faBars} className={click ? "cross" : "burger"}/>
-      </div>
+      <FontAwesomeIcon
+        onClick={handleClick}
+        icon={click ? faTimes : faBars}
+        className={"mobile-menu btn"}
+      />
     </div>
   );
 };

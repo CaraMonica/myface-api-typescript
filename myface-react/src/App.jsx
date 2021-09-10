@@ -1,13 +1,11 @@
 import { React } from "react";
 import "./Styling/App.scss";
-import PostList from "./Components/Posts/PostList";
+import PostList from "./Components/Posts/PostListPage";
 import PostForm from "./Components/Posts/PostForm";
 import UserListPage from "./Components/User/UserListPage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserPage from "./Components/User/UserPage";
 import Navbar from "./Components/Header/Navbar";
-import PostForm from "./Components/Posts/PostForm";
-
 
 const App = () => (
   <Router>
