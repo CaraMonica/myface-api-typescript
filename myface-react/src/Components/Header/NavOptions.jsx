@@ -5,7 +5,7 @@ const NavOptions = ({ click, closeMobileMenu }) => (
   <ul className={click ? "nav-options active" : "nav-options"}>
     <NavOption onClick={closeMobileMenu} href={"/posts"} text={"Posts"} isMobileOnly={false} />
     <NavOption onClick={closeMobileMenu} href={"/users"} text={"Users"} isMobileOnly={false} />
-    <NavOption onClick={closeMobileMenu} href={"#"} text={"Create Post"} isMobileOnly={false} />
+    <NavOption onClick={closeMobileMenu} href={"/posts/create"} text={"Create Post"} isMobileOnly={false} />
   </ul>
 );
 

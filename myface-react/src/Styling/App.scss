@@ -6,7 +6,12 @@
 body {
   font-family: monospace;
   text-align: center;
-  background-color: $navbar-item-color;
+  background-color: $background-color;
+}
+
+.btn {
+  color: $main-button-colour;
+  font-size: map-deep-get($fonts, sizes, button, desktop);
 }
 
 ul {
@@ -27,5 +32,16 @@ ul {
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: stretch;
-  background-color: $background-color;
+}
+
+@media (max-width: 2200px) {
+  .btn {
+    font-size: map-deep-get($fonts, sizes, button, tablet);
+  }
+}
+
+@media (max-width: 648px) {
+  .btn {
+    font-size: map-deep-get($fonts, sizes, button, mobile);
+  }
 }
