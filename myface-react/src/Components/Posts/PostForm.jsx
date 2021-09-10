@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 
 const PostForm = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const PostForm = () => {
     event.preventDefault();
     fetch("http://localhost:3001/posts/create", {
       method: "POST",
-      body: JSON.stringify({ message, imageUrl }),
+      body: JSON.stringify({ message: formData.message, imageUrl: formData.imageUrl }),
       headers: { "Content-Type": "application/json" },
     }).then(() => (window.location.href = "/posts"));
   };
