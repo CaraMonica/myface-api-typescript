@@ -11,7 +11,7 @@ const UserListPage = () => {
   });
 
   return (
-    <ul className="flex-container user">
+    <ul className="user-grid-container">
       {userList.map((user, index) => (
         <li className="user-list-item" key={index}>
           <User user={user} />

@@ -31,7 +31,7 @@ ul {
 }
 
 @media (max-width: $max-tablet-width) {
-  .body {
+  body {
     font-size: map-deep-get($fonts, sizes, body, tablet);
     line-height: map-deep-get($fonts, line-height, body, tablet);
   }
@@ -42,7 +42,7 @@ ul {
 }
 
 @media (max-width: $max-mobile-width) {
-  .body {
+  body {
     font-size: map-deep-get($fonts, sizes, body, mobile);
     line-height: map-deep-get($fonts, line-height, body, mobile);
   }
@@ -50,4 +50,9 @@ ul {
   .btn {
     font-size: map-deep-get($fonts, sizes, button, mobile);
   }
+}
+
+.page-margin {
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
