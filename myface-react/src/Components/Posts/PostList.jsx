@@ -3,11 +3,6 @@ import Post from "./Post";
 
 const apiUrl = "http://localhost:3001/posts";
 
-const updateInteraction = (postId, interaction, updatePostState) =>
-  fetch(`${apiUrl}/${postId}/${interaction}`, { method: "POST" })
-    .then(response => response.json())
-    .then(updatePostState);
-
 const PostList = () => {
   const [postList, setPostList] = useState([]);
 
@@ -17,11 +12,16 @@ const PostList = () => {
       .then(data => setPostList(data.results));
   }, []);
 
-  const updatePostState = post => {
+  const updatePostState = newPost => {
     const newPostList = [...postList];
-    newPostList[newPostList.findIndex(p => p.id === post.id)] = post;
+    newPostList[newPostList.findIndex(post => post.id === newPost.id)] = newPost;
     setPostList(newPostList);
   };
+
+  const updateInteraction = (postId, interaction) =>
+    fetch(`${apiUrl}/${postId}/${interaction}`, { method: "POST" })
+      .then(response => response.json())
+      .then(updatePostState);
 
   return (
     <ul className="flex-container">
@@ -30,10 +30,10 @@ const PostList = () => {
           post={post}
           key={index}
           isOnPostPage={true}
-          onLikeClick={() => updateInteraction(post.id, "like", updatePostState)}
-          onDislikeClick={() => updateInteraction(post.id, "dislike", updatePostState)}
-          onUnlikeClick={() => updateInteraction(post.id, "unlike", updatePostState)}
-          onUndislikeClick={() => updateInteraction(post.id, "undislike", updatePostState)}
+          onLikeClick={() => updateInteraction(post.id, "like")}
+          onDislikeClick={() => updateInteraction(post.id, "dislike")}
+          onUnlikeClick={() => updateInteraction(post.id, "unlike")}
+          onUndislikeClick={() => updateInteraction(post.id, "undislike")}
         />
       ))}
     </ul>
