@@ -52,10 +52,8 @@
   z-index: 2;
 }
 
-@media (max-width: 648px) {
-  /*Mobile View */
+@media (max-width: $max-mobile-width) {
   .header {
-    padding: 0px map-deep-get($spacing, card-padding, mobile);
     background: transparent;
     color: $background-color-darker;
   }

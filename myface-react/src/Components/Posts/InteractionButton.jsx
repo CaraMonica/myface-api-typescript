@@ -1,16 +1,16 @@
-import { React, Fragment } from "react";
+import { React } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsDown, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 
 const LikeDislikeButton = ({ onClick, interactionType, hasUserInteracted, interactionValue, buttonType }) => (
-  <Fragment>
+  <div>
     <FontAwesomeIcon
       icon={buttonType}
       onClick={onClick}
-      className={`btn ${interactionType}${hasUserInteracted ? ` ${interactionType}ed` : ""}`}
+      className={`btn ${interactionType}${hasUserInteracted ? ` ${interactionType}d` : ""}`}
     />
     <div className="interaction-value">{interactionValue}</div>
-  </Fragment>
+  </div>
 );
 
 const InteractionButton = ({ post, isLikeButton, onClick }) =>

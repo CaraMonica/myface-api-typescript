@@ -1,3 +1,5 @@
+@import "./StylingConstants.scss";
+
 .post-item {
   display: grid;
   grid-template-rows: 3fr 1fr;
@@ -29,25 +31,19 @@
 }
 
 .post-info {
-  color: rgb(85, 85, 85);
+  color: $main-font-colour;
 }
 
-.btn-group {
+.interaction-btn-container {
   display: flex;
   justify-content: center;
 }
 
-.btn-group button {
-  background-color: transparent;
+.interaction-btn-container button {
   border: none;
   cursor: pointer;
   float: left;
   padding: 0 10px;
-}
-
-.like,
-.dislike {
-  font-size: 200%;
 }
 
 .interaction-value {
@@ -56,31 +52,22 @@
   font-size: 95%;
 }
 
-.btn-group .disliked {
-  color: rgb(231, 87, 31);
-}
-
-.btn-group .liked {
-  color: rgb(90, 90, 223);
-}
-
-.like:not(.liked) {
+.like:not(.liked),
+.dislike:not(.disliked) {
   color: rgb(121, 121, 150);
 }
 
-.dislike:not(.disliked) {
-  color: rgb(180, 130, 110);
-}
-
-.like:not(.liked):hover {
+.like:hover,
+.btn.liked {
   color: rgb(90, 90, 223);
 }
 
-.dislike:not(.disliked):hover {
+.dislike:hover,
+.btn.disliked {
   color: #e7571f;
 }
 
-@media screen and (max-width: 1270px) {
+@media screen and (max-width: $small-desktop-width) {
   .post-item {
     width: 30vw;
     height: 45vw;
@@ -95,7 +82,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: $max-tablet-width) {
   .post-item {
     width: 42vw;
     height: 60vw;
@@ -110,7 +97,7 @@
   }
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: $max-mobile-width) {
   .post-item {
     width: 80vw;
     height: 110vw;
@@ -128,4 +115,9 @@
   .content-container {
     font-size: 3vw;
   }
+}
+
+button .like,
+.dislike {
+  padding: 0 10px;
 }

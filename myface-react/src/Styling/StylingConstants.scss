@@ -5,6 +5,10 @@
   @return $map;
 }
 
+$max-tablet-width: 850px;
+$max-mobile-width: 600px;
+$small-desktop-width: 1270px;
+
 // Colours
 $background-color: #252a38;
 $background-color-darker: #151820;
@@ -12,6 +16,7 @@ $foreground-default: #dcdcdc;
 $primary-color: #2985ff;
 $transparent-overlay: #252a388d;
 $main-button-colour: white;
+$main-font-colour: white;
 
 // Fonts
 $fonts: (

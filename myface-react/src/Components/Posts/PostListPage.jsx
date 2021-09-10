@@ -28,7 +28,6 @@ const PostListPage = () => {
     <Fragment>
       <ArrowButtons onPreviousClick={() => console.log("previous")} onNextClick={() => console.log("next")} />
       <ul className="flex-container">
-        {postList.length}
         {postList.map((post, index) => (
           <Post
             post={post}

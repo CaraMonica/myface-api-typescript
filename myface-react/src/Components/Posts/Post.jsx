@@ -7,16 +7,18 @@ const Post = ({ post, isOnPostPage, onLikeClick, onDislikeClick, onUnlikeClick, 
   <li className="post-item">
     <PostImage post={post} />
     <PostContent post={post} isOnPostPage={isOnPostPage} />
-    <InteractionButton
-      post={post}
-      isLikeButton={true}
-      onClick={post.isLikedByCurrentUser ? onUnlikeClick : onLikeClick}
-    />
-    <InteractionButton
-      post={post}
-      isLikeButton={false}
-      onClick={post.isDislikedByCurrentUser ? onUndislikeClick : onDislikeClick}
-    />
+    <div class="interaction-btn-container">
+      <InteractionButton
+        post={post}
+        isLikeButton={true}
+        onClick={post.isLikedByCurrentUser ? onUnlikeClick : onLikeClick}
+      />
+      <InteractionButton
+        post={post}
+        isLikeButton={false}
+        onClick={post.isDislikedByCurrentUser ? onUndislikeClick : onDislikeClick}
+      />
+    </div>
   </li>
 );
 

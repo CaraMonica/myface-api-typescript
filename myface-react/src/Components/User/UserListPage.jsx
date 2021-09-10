@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import User from "./User";
-// import UserList from "./userList.js"
 
 const UserListPage = () => {
   const [userList, setUserList] = useState([]);
@@ -13,12 +12,13 @@ const UserListPage = () => {
 
   return (
     <ul className="flex-container">
-    {userList.map((user, index) => (
-      <li key={index}>
-        <User user={user} />)
-      </li>
-    ))}
-    </ul>)
-}
+      {userList.map((user, index) => (
+        <li key={index}>
+          <User user={user} />
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default UserListPage;
