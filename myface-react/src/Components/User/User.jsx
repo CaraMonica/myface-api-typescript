@@ -11,11 +11,6 @@ const User = ({ user }) => (
       <UserProfileImage profileImageUrl={user.profileImageUrl} username={user.username} />
       <UserInfo name={user.name} email={user.email} />
     </div>
-    {/* <ul className="flex-container user-posts">
-      {user.posts.map(post => (
-        <Post post={post} isOnPostPage={false}/>
-      ))}
-    </ul> */}
   </div>
 );
 
