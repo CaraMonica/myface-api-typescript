@@ -4,18 +4,18 @@
 @import "./StylingConstants.scss";
 
 body {
-  font-family: map-deep-get($fonts, family);
+  font-family: map-get($fonts, family, body);
   background-color: $background-color;
-  font-size: map-deep-get($fonts, sizes, body, desktop);
-  line-height: map-deep-get($fonts, line-height, body, desktop);
+  font-size: map-get($fonts, sizes, body, desktop);
+  line-height: map-get($fonts, line-height, body, desktop);
   color: $main-font-colour;
   text-align: center;
 }
 
 .btn {
   color: $main-button-colour;
-  font-size: map-deep-get($fonts, sizes, button, desktop);
-  padding: map-deep-get($spacing, card-padding, desktop);
+  font-size: map-get($fonts, sizes, button, desktop);
+  padding: map-get($spacing, card-padding, desktop);
 }
 
 ul {
@@ -32,23 +32,23 @@ ul {
 
 @media (max-width: $max-tablet-width) {
   body {
-    font-size: map-deep-get($fonts, sizes, body, tablet);
-    line-height: map-deep-get($fonts, line-height, body, tablet);
+    font-size: map-get($fonts, sizes, body, tablet);
+    line-height: map-get($fonts, line-height, body, tablet);
   }
 
   .btn {
-    font-size: map-deep-get($fonts, sizes, button, tablet);
+    font-size: map-get($fonts, sizes, button, tablet);
   }
 }
 
 @media (max-width: $max-mobile-width) {
   body {
-    font-size: map-deep-get($fonts, sizes, body, mobile);
-    line-height: map-deep-get($fonts, line-height, body, mobile);
+    font-size: map-get($fonts, sizes, body, mobile);
+    line-height: map-get($fonts, line-height, body, mobile);
   }
 
   .btn {
-    font-size: map-deep-get($fonts, sizes, button, mobile);
+    font-size: map-get($fonts, sizes, button, mobile);
   }
 }
 

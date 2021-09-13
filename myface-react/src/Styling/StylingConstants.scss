@@ -1,10 +1,3 @@
-@function map-deep-get($map, $keys...) {
-  @each $key in $keys {
-    $map: map-get($map, $key);
-  }
-  @return $map;
-}
-
 $max-tablet-width: 950px;
 $max-mobile-width: 500px;
 $small-desktop-width: 1270px;
@@ -21,9 +14,15 @@ $main-font-colour: white;
 // Fonts
 $fonts: (
   family: (
-    "Segoe UI",
-    "Open Sans",
-    sans-serif,
+    title: (
+      "Russo One",
+      "Ubuntu",
+      monospace,
+    ),
+    body: (
+      "Ubuntu",
+      monospace,
+    ),
   ),
   sizes: (
     title: (

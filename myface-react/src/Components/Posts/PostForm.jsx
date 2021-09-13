@@ -17,16 +17,17 @@ const PostForm = () => {
 
   return (
     <Fragment>
-      <h3> Create Post</h3>
       <form method="post" onSubmit={onFormSubmit}>
         <label>
-          Please type your post here:
+          What's on your mind?
           <textarea onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             value={formData.message}
             type="text" name="message" />
         </label>
+        <br />
+        <br />
         <label>
-          Please enter the url for an image here:
+          Image url:
           <input onChange={(e) => setFormData({ ...formData, imageUrl: e.target.value })}
             value={formData.imageUrl}
             type="url" name="imageUrl" />
